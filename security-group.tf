@@ -8,9 +8,9 @@ resource "aws_security_group" "allow_web" {
 
   ingress  {
     cidr_blocks = [ "0.0.0.0/0" ]
-    description = "HTTPS"
-    from_port = 443
-    to_port = 443
+    description = "ssh"
+    from_port = 22
+    to_port = 22
     protocol = "tcp"
   }
   ingress  {
@@ -23,7 +23,7 @@ resource "aws_security_group" "allow_web" {
  
   ingress  {
     cidr_blocks = [ "0.0.0.0/0" ]
-    description = "HTTP"
+    description = "jenkins-port"
     from_port = 8080
     to_port = 8080
     protocol = "tcp"
