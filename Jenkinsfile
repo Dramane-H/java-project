@@ -12,7 +12,7 @@ pipeline {
   stages {
     stage('checkout') {
       steps {
-        git branch: 'main', url: 'https://github.com/Dramane-H/java-project'
+        git branch: 'week2', url: 'https://github.com/Dramane-H/java-project'
 
       }
     }
@@ -79,9 +79,9 @@ pipeline {
       steps {
         script {
           sshagent(credentials: ['awscred']) {
-          sh "ssh -o AAAAC3NzaC1lZDI1NTE5AAAAICzbEGGC/uobLBiTWp5Ssnn/KWrlZza9WM6V2YmZxi7Y ${REMOTE_USER}@${REMOTE_SERVER} 'docker stop java-webapp || true && docker rm java-webapp || true'"
-      sh "ssh -o AAAAC3NzaC1lZDI1NTE5AAAAICzbEGGC/uobLBiTWp5Ssnn/KWrlZza9WM6V2YmZxi7Y ${REMOTE_USER}@${REMOTE_SERVER} 'docker pull dramzy31/java-webapp'"
-          sh "ssh -o AAAAC3NzaC1lZDI1NTE5AAAAICzbEGGC/uobLBiTWp5Ssnn/KWrlZza9WM6V2YmZxi7Y ${REMOTE_USER}@${REMOTE_SERVER} 'docker run --name javaApp -d -p 8081:8081 dramzy31/java-webapp'"
+          sh "ssh -vvv -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_SERVER} 'docker stop java-webapp || true && docker rm java-webapp || true'"
+      sh "ssh -vvv -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_SERVER} 'docker pull dramzy31/java-webapp'"
+          sh "ssh -vvv -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_SERVER} 'docker run --name javaApp -d -p 8081:8081 dramzy31/java-webapp'"
           }
         }
       }

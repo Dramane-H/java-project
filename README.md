@@ -1,6 +1,7 @@
 # java-project
 Automated CI/CD pipeline for Java Project
 
+Install CloudBees AWS Credentials Plugin on jenkins
 
 Automated CI/CD pipeline for Java Project
 
