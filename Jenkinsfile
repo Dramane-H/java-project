@@ -18,6 +18,10 @@ pipeline {
     }
 
    // Build Java application
+   
+    dir("/../.."){
+        sh 'mvn clean test'
+    }
 
     stage('Maven Build') {
       steps {
