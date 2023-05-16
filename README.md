@@ -5,12 +5,6 @@ Install CloudBees AWS Credentials Plugin on jenkins
 
 Automated CI/CD pipeline for Java Project
 
-Palak Bhawsar's photo
-Palak Bhawsar
-·
-Mar 22, 2023
-·
-6 min read
 
 In this article, we will be creating an automated CI/CD pipeline for your Java project using Jenkins, Docker, and AWS. With this pipeline, your project will be automatically built, tested, and deployed to your AWS EC2 instance every time you push code to your GitHub repository.
 
@@ -34,11 +28,14 @@ sudo apt-get update
 sudo apt-get install docker.io -y
 ## Add Jenkins user to Docker group
 sudo usermod -a -G docker jenkins
+
 Set JAVA_HOME and MAVEN_HOME using the below commands. To set the variable permanently, you should add it to the .bashrc file in your home directory.
 
 echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> ~/.bashrc
 echo "export MAVEN_HOME=/usr/share/maven" >> ~/.bashrc
+
 1.1. Install Plugins
+
 Install plugins to integrate Jenkins with GitHub, Maven, and EC2. Go to Manage Jenkins, and select Manage plugins. Under available plugins search for the below plugins and Install without restart
 
 Git
@@ -50,6 +47,7 @@ Pipeline stage view
 SSH Agent
 
 1.2. Configure Java and Maven in Jenkins
+
 Go to Manage Jenkins, select Global tool configuration, and scroll down to add JDK and Maven path that we exported in the above steps as shown below. Uncheck the Install automatically checkbox, Give Name and Path and click Save.
 
 
