@@ -12,7 +12,7 @@ pipeline {
   stages {
     stage('checkout') {
       steps {
-        git branch: 'week2', url: 'https://github.com/Dramane-H/java-project'
+        git branch: 'week-3', url: 'https://github.com/Dramane-H/java-project'
 
       }
     }

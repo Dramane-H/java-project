@@ -26,37 +26,6 @@ Step 1: Setup Jenkins Server
 First set up the Jenkins server to create a pipeline. Launch an EC2 instance and install Java and Jenkins into it. Follow this article to set up a Jenkins server. You need to install Maven and Docker as well. Maven to build the Java project and Docker to build the docker image in Jenkins. SSH into your instance and install maven and Docker using the below commands. For Jenkins, I am using an Ubuntu instance.
 
 
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
 # Install Maven in Jenkins
 sudo apt-get install maven -y
 ## Update packages
@@ -67,38 +36,6 @@ sudo apt-get install docker.io -y
 sudo usermod -a -G docker jenkins
 Set JAVA_HOME and MAVEN_HOME using the below commands. To set the variable permanently, you should add it to the .bashrc file in your home directory.
 
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
 echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> ~/.bashrc
 echo "export MAVEN_HOME=/usr/share/maven" >> ~/.bashrc
 1.1. Install Plugins
@@ -152,37 +89,6 @@ Launch an EC2 instance and install docker into it. Open port 22 to SSH into the 
 I have launched the Amazon Linux instance and setup Docker using the below commands:
 
 
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
 # Update packages
 sudo yum update
 # Install Docker
@@ -204,37 +110,7 @@ Write Jenkinsfile with all the below steps to fetch, build, test and deploy Java
 GitHub Project
 
 
-COPY
 
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
 pipeline {
   agent any
 
@@ -328,37 +204,6 @@ pipeline {
 Also, write Dockerfile with the instructions to build the Java project and keep this file in the root directory of the project.
 
 
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
-
-COPY
 #Define your base image 
 FROM eclipse-temurin:17-jdk-focal 
 
