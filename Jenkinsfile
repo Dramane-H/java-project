@@ -6,6 +6,7 @@ pipeline {
     REMOTE_SERVER = '13.38.87.160'
     REMOTE_USER = 'ubuntu'            
   }
+  
 
   // Fetch code from GitHub
 
