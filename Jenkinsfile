@@ -7,7 +7,6 @@ pipeline {
     REMOTE_USER = 'ubuntu'            
   }
   
-
   // Fetch code from GitHub
 
   stages {
