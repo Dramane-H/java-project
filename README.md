@@ -52,9 +52,8 @@ Go to Manage Jenkins, select Global tool configuration, and scroll down to add J
 
 
 
+# 1.3. Create Webhook
 
-
-1.3. Create Webhook
 Webhook in Jenkins triggers the pipeline automatically when any changes are done in the GitHub repository like commit and push. Go to Jenkins dashboard and copy the URL in the browser. Now go to GitHub repository settings. In the left pane select Webhooks.
 
 
