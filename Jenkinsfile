@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('dckr_pat_eG0_Q9_J-F8varks-MT8rYTv2sA')
+    DOCKERHUB_CREDENTIALS = credentials('dramzy31')
     REMOTE_SERVER = '35.180.178.177'
     REMOTE_USER = 'ubuntu'            
   }
