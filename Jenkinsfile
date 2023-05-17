@@ -7,6 +7,7 @@ pipeline {
     REMOTE_USER = 'ubuntu'            
   }
   
+
   // Fetch code from GitHub
 
   stages {
@@ -16,6 +17,7 @@ pipeline {
 
       }
     }
+
 
    // Build Java application
    
