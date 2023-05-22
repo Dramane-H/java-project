@@ -82,7 +82,7 @@ pipeline {
     stage('Deploy Docker image to AWS instance') {
       steps {
         script {
-          sshagent(credentials: ['awscred']) {
+          sshagent(credentials: ['dramzy']) {
           sh "ssh -vvv -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_SERVER} 'docker stop java-webapp || true && docker rm java-webapp || true'"
       sh "ssh -vvv -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_SERVER} 'docker pull dramzy31/java-webapp'"
           sh "ssh -vvv -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_SERVER} 'docker run --name java-webapp -d -p 8081:8081 dramzy31/java-webapp'"
