@@ -3,7 +3,7 @@ pipeline {
 
   environment {
     DOCKERHUB_CREDENTIALS = credentials('dramzy31')
-    REMOTE_SERVER = '35.180.178.177'
+    REMOTE_SERVER = '13.38.62.77'
     REMOTE_USER = 'ubuntu'            
   }
   
@@ -24,7 +24,6 @@ pipeline {
 
     stage('Maven Build') {
       steps {
-        sh 'mvn -f /usr/share/maven/pom.xml'
         sh 'mvn clean install'
       }
 
@@ -82,7 +81,7 @@ pipeline {
     stage('Deploy Docker image to AWS instance') {
       steps {
         script {
-          sshagent(credentials: ['dramzy']) {
+          sshagent(credentials: ['awscred']) {
           sh "ssh -vvv -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_SERVER} 'docker stop java-webapp || true && docker rm java-webapp || true'"
       sh "ssh -vvv -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_SERVER} 'docker pull dramzy31/java-webapp'"
           sh "ssh -vvv -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_SERVER} 'docker run --name java-webapp -d -p 8081:8081 dramzy31/java-webapp'"
