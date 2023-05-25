@@ -78,16 +78,21 @@ pipeline {
 
    // Pull docker image from DockerHub and run in EC2 instance 
 
-    stage('Deploy Docker image to AWS instance') {
-      steps {
+stage('Deploy Docker image to AWS instance') {
+    steps {
         script {
-          sshagent(credentials: ['awscred']) {
-      sh "ssh -vvv -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_SERVER} 'docker stop java-webapp || true && docker rm java-webapp || true'"
-      sh "ssh -vvv -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_SERVER} 'docker pull dramzy31/java-webapp'"
-          sh "ssh -vvv -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_SERVER} 'docker run --name java-webapp -d -p 8081:8081 dramzy31/java-webapp'"
-          }
+            sshagent(credentials: ['awscred']) {
+                sh """
+                    ssh -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_SERVER} << EOF
+                    set -e
+                    
+                    docker stop java-webapp || true
+                    docker rm java-webapp || true
+                    docker pull dramzy31/java-webapp
+                    docker run --name java-webapp -d -p 8081:8081 dramzy31/java-webapp
+                    EOF
+                """
+            }
         }
-      }
     }
-  }
 }
