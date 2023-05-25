@@ -1,9 +1,7 @@
 # java-project
-Automated CI/CD pipeline for Java Project
-
-Install CloudBees AWS Credentials Plugin on jenkins
-
-Automated CI/CD pipeline for Java Project
+- Automated CI/CD pipeline for Java Project
+- Install CloudBees AWS Credentials Plugin on jenkins
+- Automated CI/CD pipeline for Java Project
 
 
 In this article, we will be creating an automated CI/CD pipeline for your Java project using Jenkins, Docker, and AWS. With this pipeline, your project will be automatically built, tested, and deployed to your AWS EC2 instance every time you push code to your GitHub repository.
