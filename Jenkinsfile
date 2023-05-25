@@ -3,7 +3,7 @@ pipeline {
 
   environment {
     DOCKERHUB_CREDENTIALS = credentials('dramzy31')
-    REMOTE_SERVER = '13.39.21.136'
+    REMOTE_SERVER = '35.180.41.62'
     REMOTE_USER = 'ubuntu'            
   }
   
@@ -85,7 +85,7 @@ stage('Deploy Docker image to AWS instance') {
                 sh """
                     ssh -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_SERVER} << EOF
                     set -e
-                    
+                    sudo -i
                     docker stop java-webapp || true
                     docker rm java-webapp || true
                     docker pull dramzy31/java-webapp
