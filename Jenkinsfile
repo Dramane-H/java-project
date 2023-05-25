@@ -67,12 +67,7 @@ pipeline {
     stage('Push Image to dockerHUb') {
       steps {
         sh 'ddocker push dramzy31/java-webapp:latest'
-      }
-      post {
-        always {
-          sh 'docker logout'
-        }
-      }
+     
 
     }
 
@@ -85,6 +80,13 @@ pipeline {
           sh "ssh -vvv -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_SERVER} 'docker stop java-webapp || true && docker rm java-webapp || true'"
       sh "ssh -vvv -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_SERVER} 'docker pull dramzy31/java-webapp'"
           sh "ssh -vvv -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_SERVER} 'docker run --name java-webapp -d -p 8081:8081 dramzy31/java-webapp'"
+
+           }
+      post {
+        always {
+          sh 'docker logout'
+        }
+      }
           }
         }
       }
