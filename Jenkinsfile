@@ -82,8 +82,8 @@ stage('Deploy Docker image to AWS instance') {
     steps {
         script {
             sshagent(credentials: ['awscred']) {
-              sh "ssh -o StrictHostKeyCheckin||g=no ${REMOTE_USER}@${REMOTE_SERVER} 'docker stop java-webapp || true && docker rm java-webapp || true'"
-              sh "ssh -o StrictHostKeyCheckin||g=no ${REMOTE_USER}@${REMOTE_SERVER} 'docker pull dramzy31/java-webapp:latest'"
+              sh "ssh -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_SERVER} 'docker stop java-webapp || true && docker rm java-webapp || true'"
+              sh "ssh -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_SERVER} 'docker pull dramzy31/java-webapp:latest'"
               sh "ssh -o StrictHostKeyChecking=no ${REMOTE_USER}@${REMOTE_SERVER} 'docker run --name java-webapp -d -p 8081:8081 dramzy31/java-webapp'"
          
             }
