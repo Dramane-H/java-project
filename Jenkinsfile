@@ -77,7 +77,8 @@ pipeline {
     }
 
    // Pull docker image from DockerHub and run in EC2 instance 
-
+    // Do not forget to add the "user" to docker group so that to give him access to use docker command
+    
 stage('Deploy Docker image to AWS instance') {
     steps {
         script {
