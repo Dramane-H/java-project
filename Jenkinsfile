@@ -67,7 +67,12 @@ pipeline {
     stage('Push Image to dockerHUb') {
       steps {
         sh 'ddocker push dramzy31/java-webapp:latest'
-     
+      }
+      post {
+        always {
+          sh 'docker logout'
+        }
+      }
 
     }
 
