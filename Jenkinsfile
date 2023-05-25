@@ -88,7 +88,7 @@ stage('Deploy Docker image to AWS instance') {
                     sudo -i
                     docker stop java-webapp || true
                     docker rm java-webapp || true
-                    docker pull dramzy31/java-webapp
+                    docker pull dramzy31/java-webapp:latest
                     docker run --name java-webapp -d -p 8081:8081 dramzy31/java-webapp
                     EOF
                 """
