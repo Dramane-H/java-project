@@ -96,3 +96,4 @@ stage('Deploy Docker image to AWS instance') {
         }
     }
 }
+  }
